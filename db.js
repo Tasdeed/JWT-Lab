@@ -30,7 +30,6 @@ User.hasMany(Note);
 User.byToken = async (token) => {
   try {
     const payload = jwt.verify(token, process.env.JWT);
-    console.log(payload);
     const user = await User.findByPk(payload.id);
     if (user) {
       return user;
